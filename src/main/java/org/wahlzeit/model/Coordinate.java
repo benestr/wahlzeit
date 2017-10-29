@@ -21,4 +21,11 @@ public class Coordinate {
         return object instanceof Coordinate && isEqual((Coordinate) object);
     }
 
+    public double getDistance(Coordinate coordinate) {
+        if(coordinate == null) {
+            throw new IllegalArgumentException("Coordinate must not be null");
+        }
+        return Math.sqrt(
+                Math.pow(x - coordinate.x, 2) + Math.pow(y - coordinate.y, 2) + Math.pow(z - coordinate.z, 2));
+    }
 }
