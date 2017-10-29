@@ -121,7 +121,12 @@ public class Photo extends DataObject {
 	 * The default type is jpg
 	 */
 	protected String ending = "jpg";
-	
+
+	/**
+	 * The location where this photo was taken
+	 */
+	private Location location;
+
 	/**
 	 *
 	 */
@@ -417,5 +422,14 @@ public class Photo extends DataObject {
 	public void setNoNewPraise() {
 		noVotesAtLastNotification = noVotes;
 		incWriteCount();
+	}
+
+	public void setLocation(Location location) {
+		this.location = location;
+		incWriteCount();
+	}
+
+	public Location getLocation() {
+		return location;
 	}
 }
