@@ -6,6 +6,12 @@ public class SphericalCoordinate implements Coordinate {
     private final double longitude;
     private final double radius;
 
+    private static final double EARTH_RADIUS = 6_371_000;
+
+    public SphericalCoordinate(double latitude, double longitude) {
+        this(latitude, longitude, EARTH_RADIUS);
+    }
+
     public SphericalCoordinate(double latitude, double longitude, double radius) {
         this.latitude = latitude;
         this.longitude = longitude;
