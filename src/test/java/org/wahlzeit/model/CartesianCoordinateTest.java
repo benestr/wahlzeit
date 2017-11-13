@@ -54,7 +54,14 @@ public class CartesianCoordinateTest {
     }
 
     @Test
-    public void getDistance_differentCartesianCoordinates_correctDistance() throws Exception {
+    public void getDistance_differentCartesianCoordinate_correctDistance() throws Exception {
+        final double expectedDistance = 3.741657;
+
+        assertEquals(expectedDistance, cartesianCoordinate1.getDistance(cartesianCoordinate2.asSphericalCoordinate()), ACCEPTABLE_IMPRECISION);
+    }
+
+    @Test
+    public void getDistance_sphericalCoordinate_correctDistance() throws Exception {
         final double expectedDistance = 3.741657;
 
         assertEquals(expectedDistance, cartesianCoordinate1.getDistance(cartesianCoordinate2), ACCEPTABLE_IMPRECISION);

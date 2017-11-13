@@ -23,8 +23,7 @@ public class CartesianCoordinate implements Coordinate {
         if(coordinate == null) {
             throw new IllegalArgumentException("Coordinate must not be null");
         }
-        //TODO
-        final CartesianCoordinate cartesianCoordinate = (CartesianCoordinate) coordinate;
+        final CartesianCoordinate cartesianCoordinate = coordinate.asCartesianCoordinate();
         return Math.sqrt(
                 Math.pow(x - cartesianCoordinate.x, 2) + Math.pow(y - cartesianCoordinate.y, 2) + Math.pow(z - cartesianCoordinate.z, 2));
     }
