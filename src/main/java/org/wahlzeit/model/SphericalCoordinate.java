@@ -37,8 +37,11 @@ public class SphericalCoordinate implements Coordinate {
 
     @Override
     public boolean isEqual(Coordinate coordinate) {
-        //TODO
-        return false;
+        if(!(coordinate instanceof SphericalCoordinate)) {
+            return false;
+        }
+        final SphericalCoordinate sphericalCoordinate = (SphericalCoordinate) coordinate;
+        return latitude == sphericalCoordinate.latitude && longitude == sphericalCoordinate.longitude && radius == sphericalCoordinate.radius;
     }
 
     public double getLatitude() {
