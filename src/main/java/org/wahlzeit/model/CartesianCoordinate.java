@@ -51,4 +51,16 @@ public class CartesianCoordinate implements Coordinate {
         final CartesianCoordinate cartesianCoordinate = (CartesianCoordinate) coordinate;
         return (cartesianCoordinate.x == this.x) && (cartesianCoordinate.y == this.y) && (cartesianCoordinate.z == this.z);
     }
+
+    public double getX() {
+        return x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public double getZ() {
+        return z;
+    }
 }
