@@ -13,12 +13,12 @@ public class CartesianCoordinateTest {
     private static final double expectedDistanceCoordinate1to2 = 3.741657;
 
     @Test
-    public void testIsEqual_equal() throws Exception {
+    public void isEqual_equalButNotSameCoordinate_true() throws Exception {
         assertTrue(cartesianCoordinate1.isEqual(cartesianCoordinate1Duplicate));
     }
 
     @Test
-    public void testIsEqual_differentCartesianCoordinates() throws Exception {
+    public void isEqual_differentCartesianCoordinate_false() throws Exception {
         assertFalse(cartesianCoordinate1.isEqual(cartesianCoordinate2));
     }
 
@@ -28,32 +28,32 @@ public class CartesianCoordinateTest {
     }
 
     @Test
-    public void testEquals_equal() throws Exception {
+    public void equals_equalButNotSameCoordinate_true() throws Exception {
         assertTrue(cartesianCoordinate1.equals(cartesianCoordinate1Duplicate));
     }
 
     @Test
-    public void testEquals_differentClass() throws Exception {
+    public void equals_differentClass_false() throws Exception {
         assertFalse(cartesianCoordinate1.equals(new Object()));
     }
 
     @Test
-    public void testEquals_differentCartesianCoordinates() throws Exception {
+    public void equals_differentCartesianCoordinate_false() throws Exception {
         assertFalse(cartesianCoordinate1.equals(cartesianCoordinate2));
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void testGetDistance_nullArgument() throws Exception {
+    public void getDistance_nullArgument_illegalArgumentException() throws Exception {
         cartesianCoordinate1.getDistance(null);
     }
 
     @Test
-    public void testGetDistance_sameCartesianCoordinate() throws Exception {
+    public void getDistance_sameCartesianCoordinate_0() throws Exception {
         assertEquals(0, cartesianCoordinate1.getDistance(cartesianCoordinate1), 0.00001);
     }
 
     @Test
-    public void testGetDistance_differentCartesianCoordinates() throws Exception {
+    public void getDistance_differentCartesianCoordinates_correctDistance() throws Exception {
         assertEquals(expectedDistanceCoordinate1to2, cartesianCoordinate1.getDistance(cartesianCoordinate2), 0.00001);
     }
 
