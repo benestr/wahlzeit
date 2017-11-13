@@ -9,6 +9,7 @@ public class CartesianCoordinateTest {
     private final CartesianCoordinate cartesianCoordinate1 = new CartesianCoordinate(0, 0, 0);
     private final CartesianCoordinate cartesianCoordinate1Duplicate = new CartesianCoordinate(0, 0, 0);
     private final CartesianCoordinate cartesianCoordinate2 = new CartesianCoordinate(1, 2, 3);
+    private final SphericalCoordinate sphericalCoordinate = new SphericalCoordinate(0, 0, 0);
     private static final double expectedDistanceCoordinate1to2 = 3.741657;
 
     @Test
@@ -19,6 +20,11 @@ public class CartesianCoordinateTest {
     @Test
     public void testIsEqual_differentCartesianCoordinates() throws Exception {
         assertFalse(cartesianCoordinate1.isEqual(cartesianCoordinate2));
+    }
+
+    @Test
+    public void isEqual_nonCartesianCoordinate_false_() throws Exception {
+        assertFalse(cartesianCoordinate1.isEqual(sphericalCoordinate));
     }
 
     @Test

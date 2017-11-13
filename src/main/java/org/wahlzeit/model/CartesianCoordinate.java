@@ -12,9 +12,6 @@ public class CartesianCoordinate implements Coordinate {
         this.z = z;
     }
 
-    public boolean isEqual(CartesianCoordinate coordinate) {
-        return (coordinate.x == this.x) && (coordinate.y == this.y) && (coordinate.z == this.z);
-    }
 
     @Override
     public boolean equals(Object object) {
@@ -35,5 +32,14 @@ public class CartesianCoordinate implements Coordinate {
     @Override
     public CartesianCoordinate asCartesianCoordinate() {
         return this;
+    }
+
+    @Override
+    public boolean isEqual(Coordinate coordinate) {
+        if(!(coordinate instanceof CartesianCoordinate)) {
+            return false;
+        }
+        final CartesianCoordinate cartesianCoordinate = (CartesianCoordinate) coordinate;
+        return (cartesianCoordinate.x == this.x) && (cartesianCoordinate.y == this.y) && (cartesianCoordinate.z == this.z);
     }
 }
