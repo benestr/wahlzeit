@@ -9,7 +9,7 @@ public class CartesianCoordinateTest {
     private final CartesianCoordinate cartesianCoordinate1 = new CartesianCoordinate(0, 0, 0);
     private final CartesianCoordinate cartesianCoordinate1Duplicate = new CartesianCoordinate(0, 0, 0);
     private final CartesianCoordinate cartesianCoordinate2 = new CartesianCoordinate(1, 2, 3);
-    private static final double expectedDistance = 3.741657;
+    private static final double expectedDistanceCoordinate1to2 = 3.741657;
 
     @Test
     public void testIsEqual_equal() throws Exception {
@@ -48,7 +48,7 @@ public class CartesianCoordinateTest {
 
     @Test
     public void testGetDistance_differentCartesianCoordinates() throws Exception {
-        assertEquals(expectedDistance, cartesianCoordinate1.getDistance(cartesianCoordinate2), 0.00001);
+        assertEquals(expectedDistanceCoordinate1to2, cartesianCoordinate1.getDistance(cartesianCoordinate2), 0.00001);
     }
 
     @Test
