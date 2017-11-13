@@ -25,8 +25,11 @@ public class SphericalCoordinate implements Coordinate {
 
     @Override
     public CartesianCoordinate asCartesianCoordinate() {
-        //TODO
-        return null;
+        final double x = radius * Math.sin(Math.toRadians(90 - latitude)) * Math.cos(Math.toRadians(longitude));
+        final double y = radius * Math.sin(Math.toRadians(90 - latitude)) * Math.sin(Math.toRadians(longitude));
+        final double z = radius * Math.cos(Math.toRadians(90 - latitude));
+
+        return new CartesianCoordinate(x, y, z);
     }
 
     @Override

@@ -69,7 +69,7 @@ public class CartesianCoordinateTest {
     public void asSphericalCoordinate__correctlyConvertedCoordinate()throws Exception {
         final double expectedRadius = 3.7416573867739;
         final double expectedLongitude = 63.434948822922;
-        final double expectedLatitude = 90 - 36.69922520049;
+        final double expectedLatitude = 53.30077479951;
 
         final SphericalCoordinate result = cartesianCoordinate2.asSphericalCoordinate();
 
