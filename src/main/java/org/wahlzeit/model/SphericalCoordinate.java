@@ -31,7 +31,7 @@ public class SphericalCoordinate implements Coordinate {
 
     @Override
     public SphericalCoordinate asSphericalCoordinate() {
-        return null;
+        return this;
     }
 
     @Override

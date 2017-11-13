@@ -2,6 +2,7 @@ package org.wahlzeit.model;
 
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -42,6 +43,11 @@ public class SphericalCoordinateTest {
     @Test
     public void equals_differentCartesianCoordinate_false() throws Exception {
         assertFalse(sphericalCoordinate1.equals(sphericalCoordinate2));
+    }
+
+    @Test
+    public void asSphericalCoordinate__returnsItself()throws Exception {
+        assertEquals(sphericalCoordinate1, sphericalCoordinate1.asSphericalCoordinate());
     }
 
 }
