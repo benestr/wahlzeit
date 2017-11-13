@@ -31,8 +31,25 @@ public class SphericalCoordinate implements Coordinate {
     }
 
     @Override
+    public SphericalCoordinate asSphericalCoordinate() {
+        return null;
+    }
+
+    @Override
     public boolean isEqual(Coordinate coordinate) {
         //TODO
         return false;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public double getRadius() {
+        return radius;
     }
 }

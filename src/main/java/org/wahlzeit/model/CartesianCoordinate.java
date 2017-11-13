@@ -35,6 +35,15 @@ public class CartesianCoordinate implements Coordinate {
     }
 
     @Override
+    public SphericalCoordinate asSphericalCoordinate() {
+        final double latitude = 90 -Math.atan(Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)) / z) * 180 / Math.PI;
+        final double longitude = Math.atan(y / x) * 180 / Math.PI;
+        final double radius = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2) + Math.pow(z, 2));
+        //TODO
+        return new SphericalCoordinate(latitude, longitude, radius);
+    }
+
+    @Override
     public boolean isEqual(Coordinate coordinate) {
         if(!(coordinate instanceof CartesianCoordinate)) {
             return false;

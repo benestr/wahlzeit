@@ -4,5 +4,6 @@ public interface Coordinate {
 
     double getDistance(Coordinate coordinate);
     CartesianCoordinate asCartesianCoordinate();
+    SphericalCoordinate asSphericalCoordinate();
     boolean isEqual(Coordinate coordinate);
 }
