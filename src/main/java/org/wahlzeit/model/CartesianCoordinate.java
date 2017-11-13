@@ -31,4 +31,9 @@ public class CartesianCoordinate implements Coordinate {
         return Math.sqrt(
                 Math.pow(x - cartesianCoordinate.x, 2) + Math.pow(y - cartesianCoordinate.y, 2) + Math.pow(z - cartesianCoordinate.z, 2));
     }
+
+    @Override
+    public CartesianCoordinate asCartesianCoordinate() {
+        return this;
+    }
 }
