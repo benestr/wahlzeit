@@ -29,5 +29,19 @@ public class SphericalCoordinateTest {
         assertFalse(sphericalCoordinate1.isEqual(cartesianCoordinate));
     }
 
+    @Test
+    public void equals_equalButNotSameCoordinate_true() throws Exception {
+        assertTrue(sphericalCoordinate1.equals(sphericalCoordinate1Duplicate));
+    }
+
+    @Test
+    public void equals_differentClass_false() throws Exception {
+        assertFalse(sphericalCoordinate1.equals(new Object()));
+    }
+
+    @Test
+    public void equals_differentCartesianCoordinate_false() throws Exception {
+        assertFalse(sphericalCoordinate1.equals(sphericalCoordinate2));
+    }
 
 }

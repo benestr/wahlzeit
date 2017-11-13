@@ -14,8 +14,7 @@ public class SphericalCoordinate implements Coordinate {
 
     @Override
     public boolean equals(Object object) {
-        //TODO
-        return false;
+        return object instanceof SphericalCoordinate && isEqual((SphericalCoordinate) object);
     }
 
     @Override
