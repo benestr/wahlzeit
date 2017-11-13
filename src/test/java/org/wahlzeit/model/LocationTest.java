@@ -6,8 +6,8 @@ import static org.junit.Assert.assertSame;
 
 public class LocationTest {
 
-    private final Coordinate coordinate1 = new Coordinate(0, 0, 0);
-    private final Coordinate coordinate2 = new Coordinate(1, 1, 1);
+    private final Coordinate coordinate1 = new CartesianCoordinate(0, 0, 0);
+    private final Coordinate coordinate2 = new CartesianCoordinate(1, 1, 1);
 
     @Test
     public void testConstructor() throws Exception {
