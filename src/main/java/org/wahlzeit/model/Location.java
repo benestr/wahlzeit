@@ -16,6 +16,9 @@ public class Location {
     }
 
     public void setCoordinate(Coordinate coordinate) {
+        if(coordinate == null) {
+            throw new IllegalArgumentException("Coordinate must not be null");
+        }
         this.coordinate = coordinate;
     }
 }

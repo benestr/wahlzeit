@@ -26,4 +26,10 @@ public class LocationTest {
 
         assertSame(coordinate2, location.getCoordinate());
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetCoordinate_nullCoordinate() throws Exception {
+        final Location location = new Location(coordinate1);
+        location.setCoordinate(null);
+    }
 }
