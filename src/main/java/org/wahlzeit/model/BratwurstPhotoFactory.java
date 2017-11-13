@@ -1,12 +1,25 @@
 package org.wahlzeit.model;
 
-public class BratwurstPhotoFactory extends PhotoFactory {
-    @Override
+public class BratwurstPhotoFactory {
+
+    private static BratwurstPhotoFactory instance;
+
+    public static synchronized BratwurstPhotoFactory getBratwurstInstance() {
+        if (instance == null) {
+            setInstance(new BratwurstPhotoFactory());
+        }
+
+        return instance;
+    }
+
+    private static void setInstance(BratwurstPhotoFactory instance) {
+        BratwurstPhotoFactory.instance = instance;
+    }
+
     public BratwurstPhoto createPhoto() {
         return new BratwurstPhoto();
     }
 
-    @Override
     public BratwurstPhoto createPhoto(PhotoId id) {
         return new BratwurstPhoto(id);
     }
@@ -17,5 +30,9 @@ public class BratwurstPhotoFactory extends PhotoFactory {
 
     public BratwurstPhoto createPhoto(PhotoId id, BratwurstType bratwurstType) {
         return new BratwurstPhoto(id, bratwurstType);
+    }
+
+    public static void initialize() {
+        getBratwurstInstance();
     }
 }
