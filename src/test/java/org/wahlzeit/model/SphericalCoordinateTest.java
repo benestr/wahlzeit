@@ -61,4 +61,29 @@ public class SphericalCoordinateTest {
         assertEquals(expectedZ, result.getZ(), ACCEPTABLE_IMPRECISION);
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void getDistance_nullArgument_illegalArgumentException() throws Exception {
+        sphericalCoordinate1.getDistance(null);
+    }
+
+    @Test
+    public void getDistance_sameSphericalCoordinate_0() throws Exception {
+        assertEquals(0, sphericalCoordinate1.getDistance(sphericalCoordinate1), ACCEPTABLE_IMPRECISION);
+    }
+
+    @Test
+    public void getDistance_differentSphericalCoordinate_correctDistance() throws Exception {
+        final double expectedDistance = 96.38328;
+
+        assertEquals(expectedDistance, sphericalCoordinate1.getDistance(sphericalCoordinate2), ACCEPTABLE_IMPRECISION);
+    }
+
+    @Test
+    public void getDistance_cartesianCoordinate_correctDistance() throws Exception {
+        final double expectedDistance = 96.38328;
+
+        assertEquals(expectedDistance, sphericalCoordinate1.getDistance(sphericalCoordinate2.asCartesianCoordinate()), ACCEPTABLE_IMPRECISION);
+    }
+
+
 }

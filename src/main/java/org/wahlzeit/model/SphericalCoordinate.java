@@ -19,8 +19,10 @@ public class SphericalCoordinate implements Coordinate {
 
     @Override
     public double getDistance(Coordinate coordinate) {
-        //TODO
-        return 0;
+        if(coordinate == null) {
+            throw new IllegalArgumentException("Coordinate must not be null");
+        }
+        return asCartesianCoordinate().getDistance(coordinate.asCartesianCoordinate());
     }
 
     @Override
