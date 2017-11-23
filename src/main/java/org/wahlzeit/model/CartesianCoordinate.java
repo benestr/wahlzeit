@@ -1,6 +1,6 @@
 package org.wahlzeit.model;
 
-public class CartesianCoordinate implements Coordinate {
+public class CartesianCoordinate extends AbstractCoordinate {
 
     private final double x;
     private final double y;
@@ -12,21 +12,18 @@ public class CartesianCoordinate implements Coordinate {
         this.z = z;
     }
 
-
-    @Override
-    public boolean equals(Object object) {
-        return object instanceof CartesianCoordinate && isEqual((CartesianCoordinate) object);
+    public double getX() {
+        return x;
     }
 
-    @Override
-    public double getDistance(Coordinate coordinate) {
-        if(coordinate == null) {
-            throw new IllegalArgumentException("Coordinate must not be null");
-        }
-        final CartesianCoordinate cartesianCoordinate = coordinate.asCartesianCoordinate();
-        return Math.sqrt(
-                Math.pow(x - cartesianCoordinate.x, 2) + Math.pow(y - cartesianCoordinate.y, 2) + Math.pow(z - cartesianCoordinate.z, 2));
+    public double getY() {
+        return y;
     }
+
+    public double getZ() {
+        return z;
+    }
+
 
     @Override
     public CartesianCoordinate asCartesianCoordinate() {
@@ -42,6 +39,11 @@ public class CartesianCoordinate implements Coordinate {
         return new SphericalCoordinate(latitude, longitude, radius);
     }
 
+    double doGetCartesianDistance(CartesianCoordinate cartesianCoordinate) {
+        return Math.sqrt(
+                Math.pow(x - cartesianCoordinate.x, 2) + Math.pow(y - cartesianCoordinate.y, 2) + Math.pow(z - cartesianCoordinate.z, 2));
+    }
+
     @Override
     public boolean isEqual(Coordinate coordinate) {
         if(!(coordinate instanceof CartesianCoordinate)) {
@@ -51,15 +53,8 @@ public class CartesianCoordinate implements Coordinate {
         return (cartesianCoordinate.x == this.x) && (cartesianCoordinate.y == this.y) && (cartesianCoordinate.z == this.z);
     }
 
-    public double getX() {
-        return x;
-    }
-
-    public double getY() {
-        return y;
-    }
-
-    public double getZ() {
-        return z;
+    @Override
+    public boolean equals(Object object) {
+        return object instanceof CartesianCoordinate && isEqual((CartesianCoordinate) object);
     }
 }

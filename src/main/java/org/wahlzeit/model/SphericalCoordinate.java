@@ -1,8 +1,8 @@
 package org.wahlzeit.model;
 
-public class SphericalCoordinate implements Coordinate {
-
+public class SphericalCoordinate extends AbstractCoordinate {
     private final double latitude;
+
     private final double longitude;
     private final double radius;
 
@@ -18,17 +18,16 @@ public class SphericalCoordinate implements Coordinate {
         this.radius = radius;
     }
 
-    @Override
-    public boolean equals(Object object) {
-        return object instanceof SphericalCoordinate && isEqual((SphericalCoordinate) object);
+    public double getLatitude() {
+        return latitude;
     }
 
-    @Override
-    public double getDistance(Coordinate coordinate) {
-        if(coordinate == null) {
-            throw new IllegalArgumentException("Coordinate must not be null");
-        }
-        return asCartesianCoordinate().getDistance(coordinate.asCartesianCoordinate());
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public double getRadius() {
+        return radius;
     }
 
     @Override
@@ -45,6 +44,10 @@ public class SphericalCoordinate implements Coordinate {
         return this;
     }
 
+    double doGetSphericalDistance(SphericalCoordinate sphericalCoordinate) {
+        return 0;
+    }
+
     @Override
     public boolean isEqual(Coordinate coordinate) {
         if(!(coordinate instanceof SphericalCoordinate)) {
@@ -54,15 +57,8 @@ public class SphericalCoordinate implements Coordinate {
         return latitude == sphericalCoordinate.latitude && longitude == sphericalCoordinate.longitude && radius == sphericalCoordinate.radius;
     }
 
-    public double getLatitude() {
-        return latitude;
-    }
-
-    public double getLongitude() {
-        return longitude;
-    }
-
-    public double getRadius() {
-        return radius;
+    @Override
+    public boolean equals(Object object) {
+        return object instanceof SphericalCoordinate && isEqual((SphericalCoordinate) object);
     }
 }
