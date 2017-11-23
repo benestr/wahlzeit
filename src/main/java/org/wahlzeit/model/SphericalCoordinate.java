@@ -45,7 +45,16 @@ public class SphericalCoordinate extends AbstractCoordinate {
     }
 
     double doGetSphericalDistance(SphericalCoordinate sphericalCoordinate) {
-        return 0;
+        if (sphericalCoordinate.radius != radius) {
+            throw new UnsupportedOperationException("Spherical distance only between coordinates with same radius supported");
+        }
+        double latitudeDelta = Math.toRadians(latitude - sphericalCoordinate.latitude);
+        double longitudeDelta = Math.toRadians(longitude - sphericalCoordinate.longitude);
+        double a = Math.sin(latitudeDelta / 2) * Math.sin(latitudeDelta / 2) +
+                Math.cos(Math.toRadians(latitude)) * Math.cos(Math.toRadians(sphericalCoordinate.latitude)) *
+                        Math.sin(longitudeDelta / 2) * Math.sin(longitudeDelta / 2);
+        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        return radius * c;
     }
 
     @Override
