@@ -9,18 +9,27 @@ public abstract class AbstractCoordinate implements Coordinate{
 
     @Override
     public double getCartesianDistance(Coordinate coordinate) {
-        if(coordinate == null) {
-            throw new IllegalArgumentException("Coordinate must not be null");
+        assertNotNull(coordinate, "Coordinate must not be null");
+        final double result = asCartesianCoordinate().doGetCartesianDistance(coordinate.asCartesianCoordinate());
+
+        assert result >= 0;
+        return result;
+    }
+
+    private void assertNotNull(Object object, String message) {
+        if(object == null) {
+            throw new IllegalArgumentException(message);
         }
-        return asCartesianCoordinate().doGetCartesianDistance(coordinate.asCartesianCoordinate());
     }
 
     @Override
     public double getSphericalDistance(Coordinate coordinate) {
-        if(coordinate == null) {
-            throw new IllegalArgumentException("Coordinate must not be null");
-        }
-        return asSphericalCoordinate().doGetSphericalDistance(coordinate.asSphericalCoordinate());
+        assertNotNull(coordinate, "Coordinate must not be null");
+
+        final double result = asSphericalCoordinate().doGetSphericalDistance(coordinate.asSphericalCoordinate());
+
+        assert result >= 0;
+        return result;
     }
 
     @Override
