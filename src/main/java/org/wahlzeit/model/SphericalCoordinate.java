@@ -16,6 +16,8 @@ public class SphericalCoordinate extends AbstractCoordinate {
         this.latitude = latitude;
         this.longitude = longitude;
         this.radius = radius;
+
+        checkClassInvariants();
     }
 
     public double getLatitude() {
@@ -69,5 +71,11 @@ public class SphericalCoordinate extends AbstractCoordinate {
     @Override
     public boolean equals(Object object) {
         return object instanceof SphericalCoordinate && isEqual((SphericalCoordinate) object);
+    }
+
+    private void checkClassInvariants() {
+        assert latitude >= 0 && latitude <= 90;
+        assert latitude >= -180 && latitude <= 180;
+        assert radius > 0;
     }
 }
