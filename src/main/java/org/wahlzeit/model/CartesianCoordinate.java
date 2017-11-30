@@ -46,6 +46,8 @@ public class CartesianCoordinate extends AbstractCoordinate {
 
     @Override
     public boolean isEqual(Coordinate coordinate) {
+        assertNotNull(coordinate, "Coordinate must not be null");
+
         if(!(coordinate instanceof CartesianCoordinate)) {
             return false;
         }
