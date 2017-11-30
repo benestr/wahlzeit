@@ -34,43 +34,73 @@ public class SphericalCoordinate extends AbstractCoordinate {
 
     @Override
     public CartesianCoordinate asCartesianCoordinate() {
+        checkClassInvariants();
+
         final double x = radius * Math.sin(Math.toRadians(90 - latitude)) * Math.cos(Math.toRadians(longitude));
         final double y = radius * Math.sin(Math.toRadians(90 - latitude)) * Math.sin(Math.toRadians(longitude));
         final double z = radius * Math.cos(Math.toRadians(90 - latitude));
 
-        return new CartesianCoordinate(x, y, z);
+        final CartesianCoordinate result = new CartesianCoordinate(x, y, z);
+
+        assert result != null;
+        checkClassInvariants();
+        return result;
     }
 
     @Override
     public SphericalCoordinate asSphericalCoordinate() {
-        return this;
+        checkClassInvariants();
+        final SphericalCoordinate result = this;
+
+        assert result != null;
+        checkClassInvariants();
+        return result;
+
     }
 
     double doGetSphericalDistance(SphericalCoordinate sphericalCoordinate) {
+        checkClassInvariants();
+        sphericalCoordinate.checkClassInvariants();
         if (sphericalCoordinate.radius != radius) {
             throw new UnsupportedOperationException("Spherical distance only between coordinates with same radius supported");
         }
+
         double latitudeDelta = Math.toRadians(latitude - sphericalCoordinate.latitude);
         double longitudeDelta = Math.toRadians(longitude - sphericalCoordinate.longitude);
         double a = Math.sin(latitudeDelta / 2) * Math.sin(latitudeDelta / 2) +
                 Math.cos(Math.toRadians(latitude)) * Math.cos(Math.toRadians(sphericalCoordinate.latitude)) *
                         Math.sin(longitudeDelta / 2) * Math.sin(longitudeDelta / 2);
         double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-        return radius * c;
+        final double result = radius * c;
+
+        checkClassInvariants();
+        sphericalCoordinate.checkClassInvariants();
+        return result;
     }
 
     @Override
     public boolean isEqual(Coordinate coordinate) {
+        checkClassInvariants();
+        assertNotNull(coordinate, "Coordinate must not be null");
+
         if(!(coordinate instanceof SphericalCoordinate)) {
             return false;
         }
         final SphericalCoordinate sphericalCoordinate = (SphericalCoordinate) coordinate;
-        return latitude == sphericalCoordinate.latitude && longitude == sphericalCoordinate.longitude && radius == sphericalCoordinate.radius;
+        final boolean result = latitude == sphericalCoordinate.latitude && longitude == sphericalCoordinate.longitude && radius == sphericalCoordinate.radius;
+
+        checkClassInvariants();
+        return result;
     }
 
     @Override
     public boolean equals(Object object) {
-        return object instanceof SphericalCoordinate && isEqual((SphericalCoordinate) object);
+        checkClassInvariants();
+
+        final boolean result = object instanceof SphericalCoordinate && isEqual((SphericalCoordinate) object);
+
+        checkClassInvariants();
+        return result;
     }
 
     private void checkClassInvariants() {
