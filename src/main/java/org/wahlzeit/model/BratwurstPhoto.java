@@ -13,6 +13,11 @@ public class BratwurstPhoto extends Photo {
 
     public BratwurstPhoto(BratwurstType bratwurstType) {
         super();
+
+        if(bratwurstType == null) {
+            throw new IllegalArgumentException("bratwurstType must not be null");
+        }
+
         this.bratwurstType = bratwurstType;
     }
 
@@ -22,6 +27,11 @@ public class BratwurstPhoto extends Photo {
 
     public BratwurstPhoto(PhotoId id, BratwurstType bratwurstType) {
         super(id);
+
+        if(bratwurstType == null) {
+            throw new IllegalArgumentException("bratwurstType must not be null");
+        }
+
         this.bratwurstType = bratwurstType;
     }
 
@@ -30,6 +40,10 @@ public class BratwurstPhoto extends Photo {
     }
 
     public void setBratwurstType(BratwurstType bratwurstType) {
+        if(bratwurstType == null) {
+            throw new IllegalArgumentException("bratwurstType must not be null");
+        }
+
         this.bratwurstType = bratwurstType;
     }
 }

@@ -21,6 +21,10 @@ public class BratwurstPhotoFactory {
     }
 
     public BratwurstPhoto createPhoto(PhotoId id) {
+        if(id == null) {
+            throw new IllegalArgumentException("id must not be null");
+        }
+
         return new BratwurstPhoto(id);
     }
 
