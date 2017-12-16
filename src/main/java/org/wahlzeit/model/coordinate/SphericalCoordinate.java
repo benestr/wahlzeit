@@ -1,4 +1,4 @@
-package org.wahlzeit.model;
+package org.wahlzeit.model.coordinate;
 
 public class SphericalCoordinate extends AbstractCoordinate {
     private final double latitude;

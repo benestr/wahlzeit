@@ -2,6 +2,7 @@ package org.wahlzeit.model;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
+import org.wahlzeit.model.coordinate.CartesianCoordinateTest;
 import org.wahlzeit.model.persistence.PersistenceTestSuite;
 
 @RunWith(Suite.class)
