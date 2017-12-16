@@ -89,4 +89,8 @@ public class CartesianCoordinate extends AbstractCoordinate {
         assert y != Double.NEGATIVE_INFINITY && y != Double.POSITIVE_INFINITY && y != Double.NaN ;
         assert z != Double.NEGATIVE_INFINITY && z != Double.POSITIVE_INFINITY && z != Double.NaN ;
     }
+
+	public static String getKeyString(double x, double y, double z) {
+		return String.format("x=%.10f, y=%.10f, z=%.10f", x, y, z);
+	}
 }
