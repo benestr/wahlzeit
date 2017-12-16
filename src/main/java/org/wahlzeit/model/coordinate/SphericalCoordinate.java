@@ -8,11 +8,11 @@ public class SphericalCoordinate extends AbstractCoordinate {
 
     private static final double EARTH_RADIUS = 6_371_000;
 
-    public SphericalCoordinate(double latitude, double longitude) {
+    SphericalCoordinate(double latitude, double longitude) {
         this(latitude, longitude, EARTH_RADIUS);
     }
 
-    public SphericalCoordinate(double latitude, double longitude, double radius) {
+    SphericalCoordinate(double latitude, double longitude, double radius) {
         this.latitude = latitude;
         this.longitude = longitude;
         this.radius = radius;

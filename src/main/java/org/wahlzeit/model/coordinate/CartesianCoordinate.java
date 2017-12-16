@@ -6,7 +6,7 @@ public class CartesianCoordinate extends AbstractCoordinate {
     private final double y;
     private final double z;
 
-    public CartesianCoordinate(double x, double y, double z) {
+    CartesianCoordinate(double x, double y, double z) {
         this.x = x;
         this.y = y;
         this.z = z;
