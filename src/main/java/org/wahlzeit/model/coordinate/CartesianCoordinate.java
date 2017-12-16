@@ -74,16 +74,6 @@ public class CartesianCoordinate extends AbstractCoordinate {
         return result;
     }
 
-    @Override
-    public boolean equals(Object object) {
-        checkClassInvariants();
-
-        final boolean result = object instanceof CartesianCoordinate && isEqual((CartesianCoordinate) object);
-
-        checkClassInvariants();
-        return result;
-    }
-
     private void checkClassInvariants() {
         assert x != Double.NEGATIVE_INFINITY && x != Double.POSITIVE_INFINITY && x != Double.NaN ;
         assert y != Double.NEGATIVE_INFINITY && y != Double.POSITIVE_INFINITY && y != Double.NaN ;

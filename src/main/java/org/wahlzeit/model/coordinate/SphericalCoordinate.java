@@ -93,16 +93,6 @@ public class SphericalCoordinate extends AbstractCoordinate {
         return result;
     }
 
-    @Override
-    public boolean equals(Object object) {
-        checkClassInvariants();
-
-        final boolean result = object instanceof SphericalCoordinate && isEqual((SphericalCoordinate) object);
-
-        checkClassInvariants();
-        return result;
-    }
-
     private void checkClassInvariants() {
         assert latitude >= 0 && latitude <= 90;
         assert latitude >= -180 && latitude <= 180;
