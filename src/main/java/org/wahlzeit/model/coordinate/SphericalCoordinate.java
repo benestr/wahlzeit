@@ -108,4 +108,8 @@ public class SphericalCoordinate extends AbstractCoordinate {
         assert latitude >= -180 && latitude <= 180;
         assert radius > 0;
     }
+
+    public static String getKeyString(double latitude, double longitude, double radius) {
+        return String.format("latitude=%.10f, longitude=%.10f, radius=%.10f", latitude, longitude, radius);
+    }
 }
