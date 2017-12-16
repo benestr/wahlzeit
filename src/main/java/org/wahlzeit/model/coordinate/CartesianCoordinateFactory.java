@@ -7,7 +7,10 @@ public class CartesianCoordinateFactory {
 
 	private static Map<String, CartesianCoordinate> storage = new HashMap<>();
 
-	private static CartesianCoordinate getCartesianCoordinate(double x, double y, double z) {
+	private CartesianCoordinateFactory() {
+	}
+
+	public static CartesianCoordinate getCartesianCoordinate(double x, double y, double z) {
 		String keyString = CartesianCoordinate.getKeyString(x, y, z);
 		synchronized (CartesianCoordinateFactory.class) {
 			if (storage.containsKey(keyString)) {

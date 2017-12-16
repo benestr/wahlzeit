@@ -7,7 +7,10 @@ public class SphericalCoordinateFactory {
 
 	private static Map<String, SphericalCoordinate> storage = new HashMap<>();
 
-	private static SphericalCoordinate getSphericalCoordinate(double latitude, double longitude, double radius) {
+	private SphericalCoordinateFactory() {
+	}
+
+	public static SphericalCoordinate getSphericalCoordinate(double latitude, double longitude, double radius) {
 		String keyString = SphericalCoordinate.getKeyString(latitude, longitude, radius);
 		synchronized (SphericalCoordinateFactory.class) {
 			if (storage.containsKey(keyString)) {
