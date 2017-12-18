@@ -1,7 +1,16 @@
 package org.wahlzeit.model.coordinate;
 
+import org.wahlzeit.utils.PatternInstance;
+
 import java.util.HashMap;
 import java.util.Map;
+
+@PatternInstance(
+		patternName = "Factory",
+		participants = {
+				SphericalCoordinateFactory.class, SphericalCoordinate.class
+		}
+)
 
 public class SphericalCoordinateFactory {
 

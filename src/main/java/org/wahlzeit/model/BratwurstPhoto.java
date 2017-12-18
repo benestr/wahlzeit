@@ -1,7 +1,14 @@
 package org.wahlzeit.model;
 
 import com.googlecode.objectify.annotation.Subclass;
+import org.wahlzeit.utils.PatternInstance;
 
+@PatternInstance(
+        patternName = "Factory",
+        participants = {
+                BratwurstPhotoFactory.class, BratwurstPhoto.class
+        }
+)
 @Subclass
 public class BratwurstPhoto extends Photo {
 

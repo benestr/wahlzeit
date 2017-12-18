@@ -1,5 +1,14 @@
 package org.wahlzeit.model.coordinate;
 
+
+import org.wahlzeit.utils.PatternInstance;
+
+@PatternInstance(
+        patternName = "Factory",
+        participants = {
+                CartesianCoordinateFactory.class, CartesianCoordinate.class
+        }
+)
 public class CartesianCoordinate extends AbstractCoordinate {
 
     private final double x;

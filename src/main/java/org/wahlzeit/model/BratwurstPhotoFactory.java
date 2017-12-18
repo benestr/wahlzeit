@@ -1,5 +1,13 @@
 package org.wahlzeit.model;
 
+import org.wahlzeit.utils.PatternInstance;
+
+@PatternInstance(
+        patternName = "Factory",
+        participants = {
+                BratwurstPhotoFactory.class, BratwurstPhoto.class
+        }
+)
 public class BratwurstPhotoFactory {
 
     private static BratwurstPhotoFactory instance;

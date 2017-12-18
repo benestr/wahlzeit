@@ -1,5 +1,13 @@
 package org.wahlzeit.model.coordinate;
 
+import org.wahlzeit.utils.PatternInstance;
+
+@PatternInstance(
+        patternName = "Factory",
+        participants = {
+                SphericalCoordinateFactory.class, SphericalCoordinate.class
+        }
+)
 public class SphericalCoordinate extends AbstractCoordinate {
     private final double latitude;
 
