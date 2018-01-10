@@ -12,45 +12,41 @@ import org.wahlzeit.utils.PatternInstance;
 @Subclass
 public class BratwurstPhoto extends Photo {
 
-    private BratwurstType bratwurstType;
+    private transient Bratwurst bratwurst;
+
+    private static final BratwurstTypeObject defaultBratwurstTypeObject = BratwurstManager.getInstance().createBratwurstTypeObject(BratwurstTypeObject.BratwurstType.DEFAULT, 0);
+    private static final Bratwurst defaultBratwurst = BratwurstManager.getInstance().createBratwurst(defaultBratwurstTypeObject, false);
 
     public BratwurstPhoto() {
-        this(BratwurstType.DEFAULT);
+        this(defaultBratwurst);
     }
 
-    public BratwurstPhoto(BratwurstType bratwurstType) {
+    public BratwurstPhoto(Bratwurst bratwurst) {
         super();
 
-        if(bratwurstType == null) {
-            throw new IllegalArgumentException("bratwurstType must not be null");
+        if(bratwurst == null) {
+            throw new IllegalArgumentException("bratwurst must not be null");
         }
 
-        this.bratwurstType = bratwurstType;
+        this.bratwurst = bratwurst;
     }
 
     public BratwurstPhoto(PhotoId id) {
-        this(id, BratwurstType.DEFAULT);
+        this(id, defaultBratwurst);
     }
 
-    public BratwurstPhoto(PhotoId id, BratwurstType bratwurstType) {
+    public BratwurstPhoto(PhotoId id, Bratwurst bratwurst) {
         super(id);
 
-        if(bratwurstType == null) {
-            throw new IllegalArgumentException("bratwurstType must not be null");
+        if(bratwurst == null) {
+            throw new IllegalArgumentException("bratwurst must not be null");
         }
 
-        this.bratwurstType = bratwurstType;
+        this.bratwurst = bratwurst;
     }
 
-    public BratwurstType getBratwurstType() {
-        return bratwurstType;
+    public Bratwurst getBratwurst() {
+        return bratwurst;
     }
 
-    public void setBratwurstType(BratwurstType bratwurstType) {
-        if(bratwurstType == null) {
-            throw new IllegalArgumentException("bratwurstType must not be null");
-        }
-
-        this.bratwurstType = bratwurstType;
-    }
 }

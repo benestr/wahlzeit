@@ -1,15 +1,15 @@
 package org.wahlzeit.model;
 
 import org.junit.Test;
-import org.wahlzeit.model.coordinate.CartesianCoordinate;
+import org.wahlzeit.model.coordinate.CartesianCoordinateFactory;
 import org.wahlzeit.model.coordinate.Coordinate;
 
 import static org.junit.Assert.assertSame;
 
 public class LocationTest {
 
-    private final Coordinate coordinate1 = new CartesianCoordinate(0, 0, 0);
-    private final Coordinate coordinate2 = new CartesianCoordinate(1, 1, 1);
+    private final Coordinate coordinate1 = CartesianCoordinateFactory.getCartesianCoordinate(0, 0, 0);
+    private final Coordinate coordinate2 = CartesianCoordinateFactory.getCartesianCoordinate(1, 1, 1);
 
     @Test
     public void testConstructor() throws Exception {

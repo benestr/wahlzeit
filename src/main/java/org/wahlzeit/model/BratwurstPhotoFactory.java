@@ -36,12 +36,12 @@ public class BratwurstPhotoFactory {
         return new BratwurstPhoto(id);
     }
 
-    public BratwurstPhoto createPhoto(BratwurstType bratwurstType) {
-        return new BratwurstPhoto(bratwurstType);
+    public BratwurstPhoto createPhoto(Bratwurst bratwurst) {
+        return new BratwurstPhoto(bratwurst);
     }
 
-    public BratwurstPhoto createPhoto(PhotoId id, BratwurstType bratwurstType) {
-        return new BratwurstPhoto(id, bratwurstType);
+    public BratwurstPhoto createPhoto(PhotoId id, Bratwurst bratwurst) {
+        return new BratwurstPhoto(id, bratwurst);
     }
 
     public static void initialize() {

@@ -40,7 +40,7 @@ public class PhotoUtil {
 	 * @methodtype creation
 	 */
 	public static Photo createPhoto(String filename, PhotoId id, Image uploadedImage) throws Exception {
-		Photo result = BratwurstPhotoFactory.getBratwurstInstance().createPhoto(id, BratwurstType.DEFAULT);
+		Photo result = BratwurstPhotoFactory.getBratwurstInstance().createPhoto(id);
 		result.setEnding(filename.substring(filename.lastIndexOf(".") + 1));
 
 		createImageFiles(uploadedImage, result);
