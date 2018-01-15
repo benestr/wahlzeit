@@ -12,7 +12,7 @@ import org.wahlzeit.utils.PatternInstance;
 @Subclass
 public class BratwurstPhoto extends Photo {
 
-    private transient Bratwurst bratwurst;
+    private Bratwurst bratwurst;
 
     private static final BratwurstTypeObject defaultBratwurstTypeObject = BratwurstManager.getInstance().createBratwurstTypeObject(BratwurstTypeObject.BratwurstType.DEFAULT, 0);
     private static final Bratwurst defaultBratwurst = BratwurstManager.getInstance().createBratwurst(defaultBratwurstTypeObject, false);

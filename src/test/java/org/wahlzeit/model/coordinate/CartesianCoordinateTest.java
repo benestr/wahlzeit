@@ -29,11 +29,6 @@ public class CartesianCoordinateTest {
     }
 
     @Test
-    public void equals_equalButNotSameCoordinate_true() throws Exception {
-        assertTrue(cartesianCoordinate1.equals(cartesianCoordinate1Duplicate));
-    }
-
-    @Test
     public void equals_differentClass_false() throws Exception {
         assertFalse(cartesianCoordinate1.equals(new Object()));
     }

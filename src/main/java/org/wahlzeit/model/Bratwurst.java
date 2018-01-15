@@ -1,6 +1,14 @@
 package org.wahlzeit.model;
 
-public class Bratwurst {
+import com.googlecode.objectify.annotation.Entity;
+import com.googlecode.objectify.annotation.Id;
+import org.wahlzeit.services.DataObject;
+
+@Entity
+public class Bratwurst extends DataObject {
+
+	@Id
+	long bratwurstId;
 
 	BratwurstTypeObject bratwurstTypeObject;
 

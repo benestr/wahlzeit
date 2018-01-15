@@ -1,15 +1,26 @@
 package org.wahlzeit.model;
 
+import com.googlecode.objectify.annotation.Entity;
+import com.googlecode.objectify.annotation.Id;
+import com.googlecode.objectify.annotation.Serialize;
+import org.wahlzeit.services.DataObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class BratwurstTypeObject {
+@Entity
+public class BratwurstTypeObject extends DataObject {
 
 	public enum BratwurstType {
 		DEFAULT, NUERNBERGER, THUERINGER;
 	}
 
+	@Id
+	long bratwurstTypeId;
+
+	@Serialize
 	BratwurstTypeObject superType = null;
+	@Serialize
 	List<BratwurstTypeObject> subTypes = new ArrayList<>();
 
 	BratwurstType bratwurstType;

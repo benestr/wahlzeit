@@ -19,6 +19,8 @@ public class OfyService {
 	static {
 		factory().register(Photo.class);
 		factory().register(BratwurstPhoto.class);
+		factory().register(Bratwurst.class);
+		factory().register(BratwurstTypeObject.class);
 		factory().register(Globals.class);
 		factory().register(Tag.class);
 		factory().register(User.class);
