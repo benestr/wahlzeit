@@ -8,7 +8,7 @@ import org.wahlzeit.services.DataObject;
 public class Bratwurst extends DataObject {
 
 	@Id
-	long bratwurstId;
+	Long bratwurstId;
 
 	BratwurstTypeObject bratwurstTypeObject;
 

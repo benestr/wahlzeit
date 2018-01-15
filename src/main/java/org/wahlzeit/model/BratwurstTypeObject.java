@@ -16,7 +16,7 @@ public class BratwurstTypeObject extends DataObject {
 	}
 
 	@Id
-	long bratwurstTypeId;
+	Long bratwurstTypeId;
 
 	@Serialize
 	BratwurstTypeObject superType = null;
