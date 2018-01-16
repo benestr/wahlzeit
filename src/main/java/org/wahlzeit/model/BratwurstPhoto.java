@@ -3,6 +3,14 @@ package org.wahlzeit.model;
 import com.googlecode.objectify.annotation.Subclass;
 import org.wahlzeit.utils.PatternInstance;
 
+/**
+ * How a BratwurstPhoto is created:
+ *
+ *
+ * {@link BratwurstPhotoFactory} calls one of the constructors of BratwurstPhoto.
+ * If a Bratwurst object is passed, it will be referenced by the object.
+ * Otherwise a default Bratwurst with a default BratwurstType, which is defined in this file as a constant.
+ */
 @PatternInstance(
         patternName = "Factory",
         participants = {
@@ -50,3 +58,4 @@ public class BratwurstPhoto extends Photo {
     }
 
 }
+
