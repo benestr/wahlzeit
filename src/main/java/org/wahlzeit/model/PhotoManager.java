@@ -41,7 +41,7 @@ public class PhotoManager extends ObjectManager {
 	/**
 	 *
 	 */
-	protected static final PhotoManager instance = new PhotoManager();
+	protected static final PhotoManager instance = new BratwurstPhotoManager();
 
 	private static final Logger log = Logger.getLogger(PhotoManager.class.getName());
 

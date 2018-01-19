@@ -67,7 +67,7 @@ public class UploadPhotoFormHandler extends AbstractWebFormHandler {
 		}
 
 		try {
-			BratwurstPhotoManager pm = BratwurstPhotoManager.getInstance();
+			BratwurstPhotoManager pm = (BratwurstPhotoManager) BratwurstPhotoManager.getInstance();
 			String fileName = us.getAsString(args, "fileName");
 			User user = (User) us.getClient();
 			Image uploadedImage = user.getUploadedImage();
