@@ -29,25 +29,25 @@ import java.util.logging.Logger;
 public class SysConfig extends AbstractConfig {
 
 	public static String DATA_PATH = "org-wahlzeit-dirkriehle";
-	
+
 	/**
 	 *
 	 */
 	protected static SysConfig instance = null;
 	private static Logger log = Logger.getLogger(SysConfig.class.getName());
-	
+
 	/**
 	 *
 	 */
 	protected String rootDir;
-	
+
 	/**
 	 *
 	 */
 	protected ConfigDir scriptsDir;
 	protected ConfigDir staticDir;
 	protected ConfigDir templatesDir;
-	
+
 	/**
 	 *
 	 */
@@ -113,18 +113,7 @@ public class SysConfig extends AbstractConfig {
 	 * @methodproperty composed, class
 	 */
 	public static synchronized void setInstance(SysConfig sysConfig) {
-		assertIsUninitialized();
 		instance = sysConfig;
-	}
-
-	/**
-	 * @methodtype assertion
-	 * @methodproperty primitive, class
-	 */
-	public static synchronized void assertIsUninitialized() {
-		if (instance != null) {
-			throw new IllegalStateException("attempt to initalize SysConfig again");
-		}
 	}
 
 	/**

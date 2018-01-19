@@ -26,6 +26,11 @@ public class BratwurstTypeObject extends DataObject {
 	BratwurstType bratwurstType;
 	double length;
 
+	//Required for GAE
+	public BratwurstTypeObject() {
+
+	}
+
 	public BratwurstTypeObject(BratwurstType bratwurstType, double length) {
 		this.bratwurstType = bratwurstType;
 		this.length = length;

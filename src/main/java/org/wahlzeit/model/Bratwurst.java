@@ -37,6 +37,11 @@ public class Bratwurst extends DataObject {
 
 	boolean eaten;
 
+	//Required for GAE
+	public Bratwurst() {
+
+	}
+
 	public Bratwurst(BratwurstTypeObject bratwurstTypeObject, boolean eaten) {
 		this.bratwurstTypeObject = bratwurstTypeObject;
 		this.eaten = eaten;
