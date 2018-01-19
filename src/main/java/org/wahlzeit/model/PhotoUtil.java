@@ -40,7 +40,33 @@ public class PhotoUtil {
 	 * @methodtype creation
 	 */
 	public static Photo createPhoto(String filename, PhotoId id, Image uploadedImage) throws Exception {
+		Photo result = PhotoFactory.getInstance().createPhoto(id);
+		configurePhotoObject(filename, uploadedImage, result);
+
+		return result;
+	}
+
+	/**
+	 * @methodtype creation
+	 */
+	public static Photo createBratwurstPhoto(String filename, PhotoId id, Image uploadedImage) throws Exception {
 		Photo result = BratwurstPhotoFactory.getBratwurstInstance().createPhoto(id);
+		configurePhotoObject(filename, uploadedImage, result);
+
+		return result;
+	}
+
+	/**
+	 * @methodtype creation
+	 */
+	public static Photo createBratwurstPhoto(String filename, PhotoId id, Image uploadedImage, Bratwurst bratwurst) throws Exception {
+		Photo result = BratwurstPhotoFactory.getBratwurstInstance().createPhoto(id, bratwurst);
+		configurePhotoObject(filename, uploadedImage, result);
+
+		return result;
+	}
+
+	private static void configurePhotoObject(String filename, Image uploadedImage, Photo result) throws Exception {
 		result.setEnding(filename.substring(filename.lastIndexOf(".") + 1));
 
 		createImageFiles(uploadedImage, result);
@@ -48,8 +74,6 @@ public class PhotoUtil {
 		int sourceWidth = uploadedImage.getWidth();
 		int sourceHeight = uploadedImage.getHeight();
 		result.setWidthAndHeight(sourceWidth, sourceHeight);
-
-		return result;
 	}
 
 	/**
